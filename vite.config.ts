@@ -17,9 +17,14 @@ export default defineConfig({
   server: {
     host: '0.0.0.0',
     port: 5173,
-    allowedHosts: true,
     hmr: {
-      overlay: false // Disables the error overlay if you only want console errors
-    }
+      // Используем клиентский порт и хост для WebSocket соединения
+      clientPort: 443,
+      host: 'preview--phone-game-project.poehali.dev',
+      protocol: 'wss',
+      overlay: false
+    },
+    cors: true,
+    allowedHosts: 'all'
   },
 });
